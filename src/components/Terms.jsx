@@ -23,7 +23,7 @@ const Terms = () => {
       <h2 className="about-heading"> Intellectual Property:</h2>
       <p className="about-text">
         All content on this Site, including text, graphics, logos, images, and
-        software, is the property of Street Style Stash or its licensors and is
+        software, is the property of Craig Kanyemba or its licensors and is
         protected by copyright and other intellectual property laws. You may not
         reproduce, distribute, modify, or republish any content from this Site
         without prior written consent.
@@ -71,7 +71,7 @@ const Terms = () => {
       </p>
       <h2 className="about-heading">Limitation of Liability:</h2>
       <p className="about-text">
-        In no event shall Street Style Stash or its affiliates be liable for
+        In no event shall Craig Kanyemba or its affiliates be liable for
         any direct, indirect, incidental, special, or consequential damages
         arising out of or in any way connected with your use of this Site or the
         purchase or use of any products or services obtained through this Site.

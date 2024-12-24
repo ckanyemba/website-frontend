@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
-import { productsCreate, productsEdit } from "../../features/productsSlice";
+import { productsEdit } from "../../features/productsSlice";
 import { PrimaryButton } from "./CommonStyled";
 
 export default function EditProduct({ prodId }) {
@@ -103,9 +101,9 @@ export default function EditProduct({ prodId }) {
               />
               <select onChange={(e) => setType(e.target.value)} required>
                 <option value="">Select Type</option>
-                <option value="Contemporary">Contemporary</option>
-                <option value="Gallery">Gallery</option>
-                <option value="Tech">Jewellery</option>
+                <option value="computers">Computers</option>
+                <option value="phones">Phones</option>
+                <option value="electronics">Electronics</option>
                 <option value="other">Other</option>
               </select>
               <input

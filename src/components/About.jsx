@@ -1,11 +1,6 @@
 import React from "react";
 
 const About = () => {
-  // Example URLs for founder images
-  const giftImageURL = "images/CEO";
-  const carlosImageURL = "images/CEO";
-  const chipoImageURL = "images/CEO";
-  const craigImageURL = "images/CEO";
 
   return (
     <div className="about-background-image">
@@ -71,7 +66,7 @@ const About = () => {
           <span>
             <h3>Cultural Inspiration</h3>
             <p>
-              Crafted with precision and an eye for detail, Street Style Stash
+              Crafted with precision and an eye for detail, Craig Kanyemba
               places a premium on quality materials and meticulous
               craftsmanship. Our commitment to excellence ensures that each
               piece not only stands out in terms of design but also stands the

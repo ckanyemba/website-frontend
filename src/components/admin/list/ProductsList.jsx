@@ -12,16 +12,16 @@ export default function ProductsList() {
   const { items } = useSelector((state) => state.products);
 
   const rows =
-  items &&
-  items.map((item) => {
-    return {
-      id: item._id,
-      imageUrl: item.image.url,
-      pName: item.name,
-      pDesc: item.desc,
-      price: item.price.toLocaleString(),
+    items &&
+    items.map((item) => {
+      return {
+        id: item._id,
+        imageUrl: item.image.url,
+        pName: item.name,
+        pDesc: item.desc,
+        price: item.price.toLocaleString()
       };
-  });
+    });
 
   const columns = [
     { field: "id", headerName: "ID", width: 220 },
@@ -33,7 +33,7 @@ export default function ProductsList() {
         <ImageContainer>
           <img src={params.row.imageUrl} alt="" />
         </ImageContainer>
-      ),
+      )
     },
     { field: "pName", headerName: "Name", width: 130 },
     { field: "pDesc", headerName: "Description", width: 130 },
@@ -47,10 +47,12 @@ export default function ProductsList() {
         <Actions>
           <Delete onClick={() => handleDelete(params.row.id)}>Delete</Delete>
           <EditProduct prodId={params.row.id} />
-          <View onClick={() => navigate(`/product/${params.row.id}`)}>View</View>
+          <View onClick={() => navigate(`/product/${params.row.id}`)}>
+            View
+          </View>
         </Actions>
-      ),
-    },
+      )
+    }
   ];
   const handleDelete = (id) => {
     dispatch(productsDelete(id));

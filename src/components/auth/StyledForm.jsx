@@ -4,6 +4,7 @@ export const StyledForm = styled.form`
   max-width: 350px;
   width: 100%;
   margin: 2rem auto;
+  backdrop-filter: blur(5px); /* Blur effect */
 
   h2 {
     margin-bottom: 1rem;
@@ -16,7 +17,7 @@ export const StyledForm = styled.form`
     padding: 7px;
     outline: none;
     border-radius: 5px;
-    border: 1px solid rgb(220, 220, 220);
+    border: 1px solid rgb(22, 22, 22);
     margin-bottom: 1rem;
 
     &:focus {

@@ -1,72 +1,73 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faFacebook,
-  faInstagram,
-  faPinterest,
-  faTiktok,
-  faWhatsapp,
-  faYoutube
-} from "@fortawesome/free-brands-svg-icons";
+import styled from "styled-components";
 
 const Footer = () => {
   return (
-    <footer className="footer">
-      <div className="footer-content">
-        <marquee behavior="alternate" direction="up">
-          <div className="STYLESTASH">
-            <h2>Street Style Stash</h2>
-            <p>
-              Street Style Stash is a dynamic, trend-setting private company
-              deeply entrenched in the fashion and accessories industry. With an
-              ethos grounded in creativity, individuality, and innovation,
-              Street Style Stash curates a diverse array of Contemporary, footwear,
-              and accessories that reflect the ever-evolving landscape of street
-              fashion.
-            </p>
-          </div>
-        </marquee>
-
-        <div>
-          <h2>Follow us</h2>
-          <div className="social-icons-container">
-            <FontAwesomeIcon icon={faFacebook} size="2x" />
-            <FontAwesomeIcon icon={faYoutube} size="2x" />
-            <FontAwesomeIcon icon={faInstagram} size="2x" />
-            <fontAwesomeIcon icon={faWhatsapp} size="2x" />
-          </div>
-          <div>
-            <div className="logoImg">
-              <img src="./logo.png" alt="Logo" />
-            </div>
-          </div>
-        </div>
-        <div className="Quicklinks">
-          <h2>Quick links</h2>
-          <div className="footer-section-links">
-            <div>
-              <Link to="/">Books</Link>
-            </div>
-            <div>
-              <Link to="/ForthriftCollection">Audiobooks</Link>
-            </div>
-            <div>
-              <Link to="/ForjewelleryCollection">Ebooks</Link>
-            </div>
-            <div>
-              <Link to="/Returns">Returns and Refunds</Link>
-            </div>
-            <div>
-              <Link to="/Terms">Terms of Service</Link>
-            </div>
-          </div>
-        </div>
- 
-
-      </div>
-    </footer>
+    <FooterContainer>
+      <SocialLinks>
+        {/* Add your social media links here */}
+        <SocialLink href="https://facebook.com" target="_blank">
+          Facebook
+        </SocialLink>
+        <SocialLink href="https://twitter.com" target="_blank">
+          Twitter
+        </SocialLink>
+        <SocialLink href="https://instagram.com" target="_blank">
+          Instagram
+        </SocialLink>
+      </SocialLinks>
+      <FooterNav>
+        <FooterNavItem to="/">Home</FooterNavItem>
+        <FooterNavItem to="/shop">Shop</FooterNavItem>
+        <FooterNavItem to="/about">About Us</FooterNavItem>
+        <FooterNavItem to="/contact">Contact</FooterNavItem>
+        <FooterNavItem to="/accessories">Accessories</FooterNavItem>
+        <FooterNavItem to="/help">Help</FooterNavItem>
+      </FooterNav>
+      <ContactInfo>
+        <p>Contact us at: support@craigkanyemba.africa</p>
+      </ContactInfo>
+    </FooterContainer>
   );
 };
+
+const FooterContainer = styled.footer`
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+  background-color: #333;
+  color: #fff;
+  margin-bottom: 20px;
+`;
+
+const SocialLinks = styled.div`
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 20px;
+`;
+
+const SocialLink = styled.a`
+  color: #007bff;
+  text-decoration: none;
+`;
+
+const FooterNav = styled.nav`
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 20px;
+`;
+
+const FooterNavItem = styled(Link)`
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+`;
+
+const ContactInfo = styled.div`
+  font-size: 0.9rem;
+`;
 
 export default Footer;

@@ -1,68 +1,74 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
 
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 
-import productsReducer, { productsFetch } from "./features/productsSlice";
-import { productsApi } from './features/productsApi';
-import { eventsApi } from './features/eventsApi';
-import { jewelleryCollectionsApi } from './features/jewelleryCollectionsApi';
-import { thriftCollectionsApi } from './features/thriftCollectionsApi';
-import { shoeCollectionsApi } from './features/shoeCollectionsApi';
-import { articleCollectionsApi } from './features/articleCollectionsApi';
-import jewelleryCollectionsReducer, { jewelleryCollectionsFetch } from "./features/jewelleryCollectionsSlice";
-import thriftCollectionsReducer, { thriftCollectionsFetch } from "./features/thriftCollectionsSlice";
-import shoeCollectionsReducer, { shoeCollectionsFetch } from "./features/shoeCollectionsSlice";
-import articleCollectionsReducer, { articleCollectionsFetch } from "./features/articleCollectionsSlice";
-import cartReducer, {getTotals} from "./features/cartSlice";
+import productsReducer, {
+  productsFetch,
+  productsSearch
+} from "./features/productsSlice";
+import sculpturesReducer, {
+  sculpturesFetch,
+  sculpturesSearch
+} from "./features/sculpturesSlice";
+import { productsApi } from "./features/productsApi";
+import { sculpturesApi } from "./features/sculpturesApi";
+import cartReducer, { getTotals } from "./features/cartSlice";
 import authReducer, { loadUser } from "./features/authSlice";
-import ordersSlice from "./features/ordersSlice";
+import { ordersApi } from "./features/ordersApi";
+import ordersReducer, { ordersFetch } from "./features/ordersSlice";
 import usersSlice from "./features/usersSlice";
-import eventsReducer, { eventsFetch } from './features/eventsSlice';
+import blogsReducer, { blogsFetch, blogsSearch } from "./features/blogsSlice";
+import { blogsApi } from "./features/blogsApi";
+import booksReducer, { booksFetch, booksSearch } from "./features/booksSlice";
+import { booksApi } from "./features/booksApi";
 
 const store = configureStore({
   reducer: {
     products: productsReducer,
-    jewelleryCollections: jewelleryCollectionsReducer,
-    thriftCollections: thriftCollectionsReducer,
-    shoeCollections: shoeCollectionsReducer,
-    articleCollections: articleCollectionsReducer,
-    events: eventsReducer,
-    orders: ordersSlice,
+    sculptures: sculpturesReducer,
+    orders: ordersReducer,
     users: usersSlice,
     cart: cartReducer,
     auth: authReducer,
+    blogs: blogsReducer,
+    books: booksReducer,
     [productsApi.reducerPath]: productsApi.reducer,
-    [eventsApi.reducerPath]: eventsApi.reducer,
-    [jewelleryCollectionsApi.reducerPath]: jewelleryCollectionsApi.reducer,
-    [thriftCollectionsApi.reducerPath]: thriftCollectionsApi.reducer,
-    [shoeCollectionsApi.reducerPath]: shoeCollectionsApi.reducer,
-    [articleCollectionsApi.reducerPath]: articleCollectionsApi.reducer,
-
-
+    [ordersApi.reducerPath]: ordersApi.reducer,
+    [productsApi.reducerPath]: productsApi.reducer,
+    [sculpturesApi.reducerPath]: sculpturesApi.reducer,
+    [blogsApi.reducerPath]: blogsApi.reducer,
+    [booksApi.reducerPath]: booksApi.reducer
   },
   middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware().concat(productsApi.middleware, eventsApi.middleware, jewelleryCollectionsApi.middleware, thriftCollectionsApi.middleware, shoeCollectionsApi.middleware, articleCollectionsApi.middleware);
-  },
+    return getDefaultMiddleware().concat(
+      productsApi.middleware,
+      ordersApi.middleware,
+      sculpturesApi.middleware,
+      blogsApi.middleware,
+      booksApi.middleware
+    );
+  }
 });
 
 store.dispatch(productsFetch());
-store.dispatch(jewelleryCollectionsFetch());
-store.dispatch(thriftCollectionsFetch());
-store.dispatch(shoeCollectionsFetch());
-store.dispatch(articleCollectionsFetch());
-store.dispatch(eventsFetch());
+store.dispatch(productsSearch()); // Example of dispatching productsSearch
+store.dispatch(ordersFetch());
+store.dispatch(sculpturesFetch());
+store.dispatch(sculpturesSearch()); // Example of dispatching productsSearch
 store.dispatch(getTotals());
 store.dispatch(loadUser(null));
+store.dispatch(blogsFetch()); // Dispatch the blogsFetch thunk
+store.dispatch(blogsSearch()); // Example of dispatching productsSearch
+store.dispatch(booksFetch()); // Dispatch the booksFetch thunk
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Provider store = {store}>
+    <Provider store={store}>
       <App />
-      </Provider>
+    </Provider>
   </React.StrictMode>
 );
-

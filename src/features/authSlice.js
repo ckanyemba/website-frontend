@@ -7,6 +7,10 @@ const initialState = {
  token: localStorage.getItem("token"),
  name: "",
  email: "",
+ streetNr: "",
+ zipCode: "",
+ country: "",
+ phoneNumber: "",
  _id: "",
  isAdmin: false,
  registerStatus: "",
@@ -24,7 +28,10 @@ export const registerUser = createAsyncThunk(
         name: values.name,
         email: values.email,
         password: values.password,
-        
+        streetNr: values.streetNr,
+        zipCode: values.zipCode,
+        country: values.country,
+        phoneNumber: values.phoneNumber,
        });
  
        localStorage.setItem("token", token.data);

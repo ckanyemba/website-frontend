@@ -4,7 +4,6 @@ import { DataGrid } from "@mui/x-data-grid";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { productsDelete } from "../../../features/productsSlice";
-
 import EditProduct from "../EditProduct";
 import { ordersFetch } from "../../../features/ordersSlice";
 import moment from "moment";
@@ -26,7 +25,7 @@ export default function OrdersList() {
         cName: order.shipping.name,
         amount: (order.total / 100)?.toLocaleString(),
         dStatus: order.delivey_status,
-        date: moment(order.createdAt).fromNow(),
+        date: moment(order.createdAt).fromNow()
       };
     });
 
@@ -34,7 +33,7 @@ export default function OrdersList() {
     {
       field: "id",
       headerName: "ID",
-      width: 220,
+      width: 220
     },
     {
       field: "cName",
@@ -47,7 +46,7 @@ export default function OrdersList() {
     {
       field: "amount",
       headerName: "Amount($)",
-      width: 100,
+      width: 100
     },
     {
       field: "dStatus",
@@ -55,24 +54,24 @@ export default function OrdersList() {
       width: 100,
       renderCell: (params) => {
         return (
-        <div>
-          {params.row.dStatus === "pending" ? (
-          <pending> Pending </pending> 
-           ) : params.row.dStatus ===  "Dispatched" ? (
-           <Dispatched>Dispatched</Dispatched> 
-           ) : params.row.dStatus ===  "delivered" ? (
-          <Delivered>Delivered</Delivered>
-        ) : ( 
-          "error"
-        )}
-        </div>
+          <div>
+            {params.row.dStatus === "pending" ? (
+              <pending> Pending </pending>
+            ) : params.row.dStatus === "Dispatched" ? (
+              <Dispatched>Dispatched</Dispatched>
+            ) : params.row.dStatus === "delivered" ? (
+              <Delivered>Delivered</Delivered>
+            ) : (
+              "error"
+            )}
+          </div>
         );
-      },
+      }
     },
     {
       field: "date",
       headerName: "Date",
-      width: 120,
+      width: 120
     },
     {
       field: "actions",
@@ -81,11 +80,11 @@ export default function OrdersList() {
       width: 220,
       renderCell: (params) => {
         return (
-        <Actions>
-          <DispatchBtn>Dispatch</DispatchBtn>
-          <DeliveryBtn>Deliver</DeliveryBtn>
-          <View>View</View>
-        </Actions>
+          <Actions>
+            <DispatchBtn>Dispatch</DispatchBtn>
+            <DeliveryBtn>Deliver</DeliveryBtn>
+            <View>View</View>
+          </Actions>
         );
       }
     }

@@ -7,9 +7,9 @@ export const productsApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/" }),
   endpoints: (builder) => ({
     getAllProducts: builder.query({
-      query: () => `products`,
-    }),
-  }),
+      query: () => `products`
+    })
+  })
 });
 
 // Export hooks for usage in functional components, which are

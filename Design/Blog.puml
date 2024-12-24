@@ -1,0 +1,142 @@
+@startuml Blog System Class Diagram
+
+skinparam classAttributeIconSize 0
+
+class User {
+  -userId: Long
+  -username: String
+  -email: String
+  -password: String
+  -profilePicture: String
+  -bio: String
+  -registrationDate: DateTime
+  -lastLogin: DateTime
+  +register()
+  +login()
+  +updateProfile()
+  +resetPassword()
+}
+
+class Author {
+  -authorBio: String
+  -socialLinks: Map<String, String>
+  +createPost()
+  +editPost()
+  +deleteDraft()
+  +publishPost()
+}
+
+class Admin {
+  +manageUsers()
+  +manageCategories()
+  +moderateComments()
+  +configureBlogSettings()
+}
+
+class Post {
+  -postId: Long
+  -title: String
+  -content: Text
+  -slug: String
+  -excerpt: String
+  -featuredImage: String
+  -status: PostStatus
+  -publishDate: DateTime
+  -lastModified: DateTime
+  -viewCount: Integer
+  +publish()
+  +unpublish()
+  +updateContent()
+  +incrementViews()
+}
+
+class Category {
+  -categoryId: Long
+  -name: String
+  -slug: String
+  -description: String
+  -parentCategory: Category
+  +addSubcategory()
+  +updateDetails()
+}
+
+class Tag {
+  -tagId: Long
+  -name: String
+  -slug: String
+  +updateName()
+}
+
+class Comment {
+  -commentId: Long
+  -content: Text
+  -createdAt: DateTime
+  -modifiedAt: DateTime
+  -status: CommentStatus
+  +approve()
+  +reject()
+  +markAsSpam()
+}
+
+class Media {
+  -mediaId: Long
+  -fileName: String
+  -fileType: String
+  -fileSize: Long
+  -url: String
+  -uploadDate: DateTime
+  +upload()
+  +delete()
+  +getPublicUrl()
+}
+
+class BlogSetting {
+  -settingId: Long
+  -blogName: String
+  -blogDescription: String
+  -theme: String
+  -postsPerPage: Integer
+  -allowComments: Boolean
+  -requireModeration: Boolean
+  +updateSettings()
+}
+
+enum PostStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+  SCHEDULED
+}
+
+enum CommentStatus {
+  PENDING
+  APPROVED
+  SPAM
+  REJECTED
+}
+
+class Subscription {
+  -subscriptionId: Long
+  -email: String
+  -status: Boolean
+  -subscriptionDate: DateTime
+  +subscribe()
+  +unsubscribe()
+  +verifyEmail()
+}
+
+' Relationships
+User <|-- Author
+User <|-- Admin
+Author "1" -- "*" Post
+Post "*" -- "*" Category
+Post "*" -- "*" Tag
+Post "1" -- "*" Comment
+Comment "*" -- "1" User
+Post "*" -- "*" Media
+Comment "*" -- "0..1" Comment : replies
+BlogSetting "1" -- "1" Admin : manages
+Post "*" -- "*" User : favorites
+User "*" -- "*" User : follows
+
+@enduml

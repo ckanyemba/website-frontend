@@ -10,7 +10,7 @@ import {
   FaCalendar,
   FaNewspaper,
   FaTwitch,
-  FaFaucet,
+  FaFaucet
 } from "react-icons/fa";
 
 const Dashboard = () => {
@@ -38,45 +38,22 @@ const Dashboard = () => {
         >
           <FaStore /> Products
         </NavLink>
+
         <NavLink
           className={({ isActive }) =>
             isActive ? "link-active" : "link-inactive"
           }
-          to="/admin/events"
+          to="/admin/nav-blog"
         >
-          <FaTwitch /> Events
+          <FaFaucet /> Blog
         </NavLink>
         <NavLink
           className={({ isActive }) =>
             isActive ? "link-active" : "link-inactive"
           }
-          to="/admin/galleries"
+          to="/admin/nav-book"
         >
-          <FaFaucet /> Gallery
-        </NavLink>
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? "link-active" : "link-inactive"
-          }
-          to="/admin/newjewelleryCollections"
-        >
-          <FaFaucet /> Jewellery
-        </NavLink>
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? "link-active" : "link-inactive"
-          }
-          to="/admin/newthriftCollections"
-        >
-          <FaFaucet /> Thrift 
-        </NavLink>
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? "link-active" : "link-inactive"
-          }
-          to="/admin/newshoeCollections"
-        >
-          <FaFaucet /> Shoe 
+          <FaFaucet /> Book
         </NavLink>
         <NavLink
           className={({ isActive }) =>
@@ -90,11 +67,18 @@ const Dashboard = () => {
           className={({ isActive }) =>
             isActive ? "link-active" : "link-inactive"
           }
+          to="/admin/nav-sculpture"
+        >
+          <FaUsers /> Sculptures
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "link-active" : "link-inactive"
+          }
           to="/admin/users"
         >
           <FaUsers /> Users
         </NavLink>
-    
       </SideNav>
       <Content>
         <Outlet />
@@ -108,6 +92,7 @@ export default Dashboard;
 const StyledDashboard = styled.div`
   display: flex;
   height: 100vh;
+  backdrop-filter: blur(5px); /* Blur effect */
 `;
 
 const SideNav = styled.div`

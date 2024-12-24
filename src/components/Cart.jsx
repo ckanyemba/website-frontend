@@ -64,7 +64,7 @@ const Cart = () => {
         <div>
           <div className="titles">
             <h3 className="product-title">Product</h3>
-            <h3 className="price">Price</h3>
+            <h3 className="product-title">Price</h3>
             <h3 className="Quantity">Quantity</h3>
             <h3 className="total">Total</h3>
           </div>
@@ -76,7 +76,6 @@ const Cart = () => {
                     <img src={cartItem.image?.url} alt={cartItem.name} />
                     <div>
                       <h3>{cartItem.name}</h3>
-                      <p>{cartItem.desc}</p>
                       <button onClick={() => handleRemoveFromCart(cartItem)}>
                         Remove
                       </button>
@@ -116,9 +115,9 @@ const Cart = () => {
                   Login to Check out
                 </button>
               )}
-              <div>
+              {/*<div>
                 <Link to="/">shipping</Link>
-                </div>
+                </div>*/}
               <div className="continue-shopping">
                 <Link to="/">
                   <svg

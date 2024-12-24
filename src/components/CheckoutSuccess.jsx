@@ -18,11 +18,12 @@ const CheckoutSuccess = () => {
   return (
     <Container>
       <h2>Checkout Successful</h2>
-      <p>Your order might take some time to process.</p>
-      <p>Check your order status at your profile after about 10mins.</p>
+      <p>Your order take 4 - 7 business days delivery  4- some time to process.</p>
       <p>
-        Incase of any inqueries contact the support at{" "}
-        <strong>support@onlineshop.com</strong>
+        Incase of any issues contact the support at{" "}
+        <strong>apadanapublishinghouse@gmail.com</strong>
+        <strong> +2763 923 6774 </strong>
+
       </p>
     </Container>
   );

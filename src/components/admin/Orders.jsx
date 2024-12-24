@@ -1,9 +1,9 @@
 import OrdersList from "./list/OrdersList";
 const Orders = () => {
-  return(
+  return (
     <>
-    <OrdersList/>
+      <OrdersList />
     </>
-  )
-}
+  );
+};
 export default Orders;

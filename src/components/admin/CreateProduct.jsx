@@ -59,9 +59,9 @@ const CreateProduct = () => {
         />
         <select onChange={(e) => setType(e.target.value)} required>
           <option value="">Select Type</option>
-          <option value="Contemporary">Contemporary</option>
-          <option value="Gallery">Gallery</option>
-          <option value="Tech">Jewellery</option>
+          <option value="computers">Computers</option>
+          <option value="phones">Phones</option>
+          <option value="electronics">Electronics</option>
           <option value="other">Other</option>
         </select>
         <input

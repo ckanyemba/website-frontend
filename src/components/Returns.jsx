@@ -4,7 +4,7 @@ const Returns = () => {
   
 
   return (
-    <div>
+    <div className="returns-refunds">
       
         <h1 className="about-heading">Returns and Refunds</h1>
        
@@ -19,17 +19,14 @@ const Returns = () => {
         <h2 className="about-heading"> Eligibility for Returns: </h2>
         <p className="about-text">
           Items must be unused, in their original packaging, and in the same
-          condition as received. Some items such as perishable goods,
-          personalized items, and gift cards may not be eligible for returns.
-          Please check the product description for details.
+          condition as received. 
         </p>
 
         <h2 className="about-heading"> Initiating a Return:</h2>
         <p className="about-text">
           To initiate a return, please contact our customer service team within
           [30] days of delivery to obtain a Return Merchandise Authorization
-          (RMA) number. You can reach us via email at [support@streetstylestash.co.za]
-          or by phone at +27 65 917 7143.
+          (RMA) number. You can reach us via email in contact
         </p>
 
         <h2 className="about-heading"> Return Shipping:</h2>
